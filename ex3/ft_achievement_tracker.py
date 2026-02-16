@@ -37,13 +37,13 @@ def ft_achievement_tracker():
     print(f"Alice vs Bob common: {Alice.achievements.intersection(Bob.achievements)}")
     print(f"Alice unique: {Alice.achievements.difference(Bob.achievements)}")
     print(f"Bob unique: {Bob.achievements.difference(Alice.achievements)}")
+
+
 if __name__ == '__main__':
     ft_achievement_tracker()
 
 
-
-
-# creer des joueurs qui auront des achievements dans un set
-
-
-# set = unordered tuple without duplicate values
+# set = unordered tuple without duplicate values with faster lookup time
+# union = returns every element in each set passed, without duplicates
+# difference = returns values that don't appear in other sets
+# intersection = returns common values in sets
