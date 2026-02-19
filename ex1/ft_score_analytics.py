@@ -1,13 +1,14 @@
 import sys
 
-if __name__ == '__main__':
-
+if __name__ == "__main__":
     print("=== Player Score Analytics ===")
     ac = len(sys.argv)
 
     if ac == 1:
-        print("No scores provided. Usage:"
-                " python3 ft_score_analytics.py <score1> <score2> ...")
+        print(
+            "No scores provided. Usage:"
+            " python3 ft_score_analytics.py <score1> <score2> ..."
+        )
     else:
         try:
             list = [int(x) for x in sys.argv[1:]]
@@ -26,4 +27,3 @@ if __name__ == '__main__':
             print(f"Score range: {range}\n")
         except ValueError:
             print("Please provide valid inputs")
-    

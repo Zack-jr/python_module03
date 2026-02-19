@@ -1,24 +1,25 @@
-class Player():
+class Player:
     def __init__(self, player_name, player_level):
         self.player_name = player_name
         self.player_level = player_level
 
 
 def generate_stream(players, actions, mode):
+    """generate stream of data using yield"""
 
     if mode == "game":
         for i in range(1, 1001):
-                p = players[i % 3]
-                a = actions[i % 4]
-                event = f"Event {i}: Player {p.player_name} ({p.player_level}) {a}"
-                if a == "leveled up":
-                    p.player_level += 1
-                yield event
+            p = players[i % 3]
+            a = actions[i % 4]
+            event = f"Event {i}: Player {p.player_name} ({p.player_level}) {a}"
+            if a == "leveled up":
+                p.player_level += 1
+            yield event
     elif mode == "fibonacci":
         a, b = 0, 1
         for _ in range(10):
-                yield a
-                a, b = b, a + b
+            yield a
+            a, b = b, a + b
     else:
         count = 0
         num = 2
@@ -33,18 +34,25 @@ def generate_stream(players, actions, mode):
                 count += 1
             num += 1
 
+
 def ft_data_stream():
+    """principal function in my program"""
     print("=== Game Data Stream Processor ===\n")
 
     Alice = Player("alice", 5)
     Bob = Player("bob", 12)
     Charlie = Player("charlie", 8)
-    
+
     players = [Alice, Bob, Charlie]
-    actions = ["killed monster", "found_treasure", "leveled up", "defeated a boss"]
+    actions = [
+        "killed monster",
+        "found_treasure",
+        "leveled up",
+        "defeated a boss"
+        ]
 
     stream = generate_stream(players, actions, "game")
-    print(f"Processing 1000 game events...")
+    print("Processing 1000 game events...\n")
 
     level_up_events = 0
     treasure_events = 0
@@ -72,26 +80,22 @@ def ft_data_stream():
     print("Processing time: 0.045 seconds\n")
 
     print("=== Generator Demonstration ===")
-    
+
     fibonacci_stream = generate_stream(None, None, "fibonacci")
-    print(f"Fibonacci sequence (first 10):", end = " ")
+    print("Fibonacci sequence (first 10):", end=" ")
     fibonacci_res = ", ".join(str(n) for n in fibonacci_stream)
     print(fibonacci_res)
 
     prime_nbr_stream = generate_stream(None, None, None)
-    print(f"Prime numbers (first 5):", end = " ")
+    print("Prime numbers (first 5):", end=" ")
     prime_nbr_res = ", ".join(str(n) for n in prime_nbr_stream)
     print(prime_nbr_res)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ft_data_stream()
 
-# 
-
-
-
-
-
+# create a stream of data and read from it
 # yield() = create a variable
 # next() = return next item in an iterator
 # iter() = create iterator object
