@@ -2,7 +2,7 @@ import math
 
 
 def calculate_distance(tuple):
-    """calculate the distance between 0.0.0 and the"""
+    """calculate the distance between 0.0.0 and the tuple passed"""
     res = math.sqrt((tuple[0] - 0) ** 2 +
                     (tuple[1] - 0) ** 2 + (tuple[2] - 0) ** 2)
     return round(res, 2)

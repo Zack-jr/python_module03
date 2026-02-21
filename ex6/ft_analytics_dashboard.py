@@ -2,6 +2,7 @@ class Player:
     """player class with different attributes"""
 
     def __init__(self, player_name, player_score, status, achievement_count):
+        """initialize all attributes"""
         self.player_name = player_name
         self.player_score = player_score
         self.status = status
